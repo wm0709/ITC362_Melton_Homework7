@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_update:
                 Log.w("MainActivity", "Update Selected");
+                Intent updateIntent = new Intent(this, UpdateActivity.class);
+                this.startActivity(updateIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -78,4 +78,16 @@ public class DatabaseManager extends SQLiteOpenHelper {
         db.execSQL(sqlDelete);
         db.close();
     }
+
+    public void updateById(int id, String name, double price) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String sqlUpdate = "update " + TABLE_CANDY;
+        sqlUpdate += " set " + NAME + " = '" + name + "', ";
+        sqlUpdate += PRICE + " = '" + price + "'";
+        sqlUpdate += " where " + ID + " = " + id;
+
+        db.execSQL(sqlUpdate);
+        db.close();
+    }
 }

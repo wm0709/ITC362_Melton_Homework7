@@ -20,6 +20,9 @@
         <activity
             android:name=".InsertActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".UpdateActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

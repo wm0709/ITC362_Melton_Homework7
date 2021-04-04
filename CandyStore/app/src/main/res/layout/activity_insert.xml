@@ -62,8 +62,8 @@
         android:layout_marginTop="102dp"
         android:layout_marginEnd="52dp"
         android:ems="10"
+        android:hint="Snickers"
         android:inputType="textPersonName"
-        android:text="Snickers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
