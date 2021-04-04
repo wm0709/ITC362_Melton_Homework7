@@ -3,6 +3,7 @@ package com.example.candystore;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         switch (id){
             case R.id.action_add:
                 Log.w("MainActivity", "Add Selected");
+                Intent insertIntent = new Intent(this, InsertActivity.class);
+                this.startActivity(insertIntent);
                 return true;
             case R.id.action_delete:
                 Log.w("MainActivity", "Delete Selected");
