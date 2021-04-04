@@ -1,8 +1,11 @@
 package com.example.candystore;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class DatabaseManager extends SQLiteOpenHelper {
 
@@ -46,6 +49,33 @@ public class DatabaseManager extends SQLiteOpenHelper {
         sqlInsert += "', '" + candy .getPrice() + "' )";
 
         db.execSQL(sqlInsert);
+        db.close();
+    }
+
+    public ArrayList<Candy> selectAll() {
+        String sqlQuery = "select * from " + TABLE_CANDY;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sqlQuery, null);
+
+        ArrayList<Candy> candies = new ArrayList<>();
+        while (cursor.moveToNext()){
+            Candy currentCandy
+                    = new Candy(Integer.parseInt(cursor.getString(0)),
+                    cursor.getString(1), cursor.getDouble(2));
+            candies.add(currentCandy);
+        }
+        db.close();
+        return candies;
+    }
+
+
+    public void deleteById(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "delete from " + TABLE_CANDY;
+        sqlDelete += " where " + ID + " = " + id;
+
+        db.execSQL(sqlDelete);
         db.close();
     }
 }
